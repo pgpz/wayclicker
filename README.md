@@ -1,0 +1,2 @@
+# wayclicker
+Wayland compatible autoclicker
