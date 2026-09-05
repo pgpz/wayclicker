@@ -1,0 +1,149 @@
+.TH WAYCLICKER 1 "September 2026" "Wayclicker 1.0.0" "User Commands"
+.SH NAME
+wayclicker \- native Wayland autoclicker
+.SH SYNOPSIS
+.B wayclicker
+.RB [ \-i " milliseconds" ]
+.RB [ \-b " button" ]
+.RB [ \-d " milliseconds" ]
+.RB [ \-c " count" ]
+.RB [ \-t " seconds" ]
+.RB [ \-p " seconds" ]
+.RB [ \-P " X,Y" ]
+.RB [ \-g ]
+.RB [ \-h ]
+.SH DESCRIPTION
+.B wayclicker
+is a autoclicker for Wayland users. x_x specifically hyprland.
+
+The program starts paused. Press
+.B F6
+to toggle clicking on or off.
+
+The mouse clicks are generated through
+.B /dev/uinput
+and cursor positioning is handled through Hyprland.
+.SH OPTIONS
+.TP
+.BI \-i " milliseconds"
+Set the interval between clicks.
+
+.TP
+.BI \-b " button"
+Select the mouse button to click.
+
+Supported buttons are:
+.BR left ,
+.BR right ,
+and
+.BR middle .
+
+.TP
+.BI \-d " milliseconds"
+Set the duration for which the mouse button is held.
+
+.TP
+.BI \-c " count"
+Stop after the specified number of clicks.
+
+A value of
+.B 0
+means unlimited clicks.
+
+.TP
+.BI \-t " seconds"
+Stop after the specified amount of time.
+
+A value of
+.B 0
+means no time limit.
+
+.TP
+.BI \-p " seconds"
+Wait for the specified number of seconds, then capture the current cursor position and lock clicking to that position.
+
+.TP
+.BI \-P " X,Y"
+Use a fixed cursor position instead of the current cursor position.
+
+.TP
+.B \-g
+Print the current cursor position and exit.
+
+.TP
+.B \-h
+Display the help message and exit.
+.SH HOTKEYS
+.TP
+.B F6
+Toggle clicking on or off.
+.TP
+.B Ctrl+C
+Exit Wayclicker.
+.SH EXAMPLES
+.TP
+Start Wayclicker with the default settings:
+.B
+wayclicker
+
+.TP
+Click every 100 milliseconds:
+.B
+wayclicker \-i 100
+
+.TP
+Perform 100 clicks:
+.B
+wayclicker \-c 100
+
+.TP
+Use the right mouse button:
+.B
+wayclicker \-b right
+
+.TP
+Click at a fixed position:
+.B
+wayclicker \-P 960,540
+.SH REQUIREMENTS
+Wayclicker requires a Linux system with:
+
+.IP \(bu 2
+Wayland
+.IP \(bu 2
+Hyprland
+.IP \(bu 2
+.B /dev/uinput
+.IP \(bu 2
+access to Linux input event devices
+.SH PERMISSIONS
+The user running Wayclicker must have permission to access
+.B /dev/uinput
+and the relevant
+.B /dev/input/event*
+devices.
+
+On many Linux distributions this can be achieved by adding the user to the
+.B input
+group.
+.SH FILES
+.TP
+.I /dev/uinput
+Used to generate mouse button events.
+
+.TP
+.I /dev/input/event*
+Used to detect the F6 hotkey.
+.SH EXIT STATUS
+.TP
+.B 0
+Successful execution.
+.TP
+.B non-zero
+An error occurred.
+.SH AUTHOR
+Wayclicker contributors
+.SH LICENSE
+See the LICENSE file distributed with Wayclicker.
+.SH SEE ALSO
+.BR hyprctl (1)
