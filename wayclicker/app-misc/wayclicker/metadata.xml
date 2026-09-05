@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>admin@pgpkey.net</email>
+		<name>pgpz</name>
+	</maintainer>
+	<longdescription>
+		wayland friendly autoclicker, written in C.
+	</longdescription>
+</pkgmetadata>
